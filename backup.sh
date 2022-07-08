@@ -354,3 +354,5 @@ ENDTIME=$(date +%s)
 DURATION=$((ENDTIME - STARTTIME))
 log "All done"
 log "Backup and transfer completed in ${DURATION} seconds"
+log "Deleting existing backups"
+rm -rf /root/backups/*
