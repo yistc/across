@@ -19,16 +19,22 @@
 [[ $EUID -ne 0 ]] && echo "Error: This script must be run as root!" && exit 1
 
 echo "Deleting existing backups"
+cd /root/backups/
 rm -rf /root/backups/*
-BACKUPPASS="apassword"
+BACKUPPASS="xxx"
 
 LOCALDIR="/root/backups/"
 TEMPDIR="/root/backups/temp/"
 LOGFILE="/root/backups/backup.log"
-BACKUP[0]="/root/test"
+BACKUP[0]="/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Preferences.xml"
+BACKUP[1]="/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Metadata"
+BACKUP[2]="/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Media"
+BACKUP[3]="/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Plug-ins"
+BACKUP[4]="/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Plug-in Support"
+BACKUP[5]="/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Codecs"
 
 RCLONE_NAME="dropbox"
-RCLONE_FOLDER='xxx'
+RCLONE_FOLDER='xxxx'
 
 
 # OPTIONAL:
@@ -176,7 +182,7 @@ start_backup() {
     [ "${#BACKUP[@]}" -eq 0 ] && echo "Error: You must to modify the [$(basename $0)] config before run it!" && exit 1
 
     log "Tar backup file start"
-    tar -zcPf ${TARFILE} ${BACKUP[@]}
+    tar -zcPf ${TARFILE} "${BACKUP[@]}"
     if [ $? -gt 1 ]; then
         log "Tar backup file failed"
         exit 1
