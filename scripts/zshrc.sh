@@ -1,5 +1,10 @@
 #! /bin/bash
 
+apt install zsh -y
+
+# set zsh
+chsh -s `which zsh`
+
 mkdir -p /root/.zfunc
 
 # aliases
