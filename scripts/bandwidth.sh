@@ -12,6 +12,7 @@ TEST_FILES_ALL=(
     http://speedtest.ap-south-1.linodeobjects.com/1GB_test.file
     http://speedtest.ap-south-1.linodeobjects.com/10GB_test.file
     http://speedtest.tokyo2.linode.com/100MB-tokyo2.bin
+    http://speedtest.singapore.linode.com/100MB-singapore.bin
 
     # Vultr
     https://sgp-ping.vultr.com/vultr.com.1000MB.bin
@@ -27,7 +28,7 @@ TEST_FILES_ALL=(
     http://mirror.sfo12.us.leaseweb.net/speedtest/1000mb.bin
 )
 
-TEST_FILES_JP = (
+TEST_FILES_JP=(
     http://speedtest.tok02.softlayer.com/downloads/test500.zip
     http://mirror.tyo10.jp.leaseweb.net/speedtest/1000mb.bin
     https://hnd-jp-ping.vultr.com/vultr.com.1000MB.bin
